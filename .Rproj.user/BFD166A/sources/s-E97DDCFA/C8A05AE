@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1589524529628.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "C8A05AE",
+    "lastKnownWriteTime" : 1589524630,
+    "last_content_update" : 1589524630527,
+    "path" : "~/Documents/Computational Biology/website/content/blog/2020-05-15-python-and-r.Rmd",
+    "project_path" : "content/blog/2020-05-15-python-and-r.Rmd",
+    "properties" : {
+        "cursorPosition" : "5,14",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

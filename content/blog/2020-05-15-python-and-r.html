@@ -1,0 +1,36 @@
+---
+title: Python and R
+author: ''
+date: '2020-05-15'
+slug: python-and-r
+categories: []
+tags: []
+description: ''
+---
+
+
+
+<p>In my computational biology course that I took this semester, I had the oppurtunity to learn a little bit of python coding. I had been working mainly with r, so learning python was a bit difficult at first, but there are a lot of similarities between the two languages.</p>
+<p>For example, like you can assign values to variables, so can you in python. One thing that’s cool in python however, is that you can do multiple assignments like this.</p>
+<pre class="r"><code>library(reticulate)</code></pre>
+<pre class="python"><code>#This is a python code chunk
+
+animal, flower, color, adjective = &quot;dog&quot;, &quot;lily&quot;, &quot;purple&quot;, &quot;adorable&quot;
+
+#Print out assigned variables
+print(color, flower)</code></pre>
+<pre><code>## purple lily</code></pre>
+<pre class="python"><code>print(adjective, animal)</code></pre>
+<pre><code>## adorable dog</code></pre>
+<p>Speaking of an adorable dog, look how adorable this doggo is (and no, unfortunately she’s not mine, but my brother’s)!</p>
+<p><img src="/blog/2020-05-15-python-and-r_files/chia.jpeg" /></p>
+<p>Another cool thing about coding with these two language is that we can interchange these languages using R markdown. For example, using python, I create an array (essentially a matrix) and save it as “array1”.</p>
+<pre class="python"><code>#This is a python code chunk
+import numpy as np
+array1=np.array([[1,2],[3,4]])</code></pre>
+<p>Next, in an r code chunk, I can ask R to take every value within the matrix “array1” using py<span class="math inline">\(array1 and add 2 to it. By using &quot;py\)</span>&quot; we tell r that we are referring to a python code.</p>
+<pre class="r"><code>#This is an r code chunk
+py$array1 + 2</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    3    4
+## [2,]    5    6</code></pre>

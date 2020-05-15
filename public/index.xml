@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Python and R</title>
+      <link>/blog/python-and-r/</link>
+      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/python-and-r/</guid>
+      <description>In my computational biology course that I took this semester, I had the oppurtunity to learn a little bit of python coding. I had been working mainly with r, so learning python was a bit difficult at first, but there are a lot of similarities between the two languages.
+For example, like you can assign values to variables, so can you in python. One thing that’s cool in python however, is that you can do multiple assignments like this.</description>
+    </item>
+    
+    <item>
       <title>Projects</title>
       <link>/projects/</link>
       <pubDate>Sun, 02 Oct 2016 22:55:05 -0400</pubDate>
