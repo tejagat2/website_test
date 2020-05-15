@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Tejashwini Gattu" />
+    <meta name="description" content="Describe your website">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+    <title>Project 1</title>
+    <meta name="generator" content="Hugo 0.70.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"><i class="fa fa-home"></i></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/blog/">BLOG</a></li>
+        
+        <li><a href="/project1/">PROJECT 1</a></li>
+        
+        <li><a href="/resume/">RESUME</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="/project1/">Project 1</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          January 1, 0001
+            &nbsp;&nbsp;
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+
+
+<div id="tejashwini-gattu" class="section level2">
+<h2>Tejashwini Gattu</h2>
+</div>
+<div id="tg23939" class="section level2">
+<h2>tg23939</h2>
+<pre class="r"><code># Install all necessary packages  
+load(&quot;~/P1data.RData&quot;)</code></pre>
+<pre><code>## Warning in readChar(con, 5L, useBytes = TRUE): cannot open compressed file &#39;/
+## Users/Teja/P1data.RData&#39;, probable reason &#39;No such file or directory&#39;</code></pre>
+<pre><code>## Error in readChar(con, 5L, useBytes = TRUE): cannot open the connection</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.0     ✓ purrr   0.3.3
+## ✓ tibble  3.0.1     ✓ dplyr   0.8.5
+## ✓ tidyr   1.0.3     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.4.0</code></pre>
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>save.image(&quot;~/P1data&quot;)</code></pre>
+</div>
+<div id="part-i" class="section level2">
+<h2>Part I</h2>
+<div id="the-two-datasets-that-i-will-be-working-with-are-called-countries-and-x2019-both-of-which-were-found-on-kaggle.-the-dataset-x2019-is-a-world-happiness-report-for-the-year-2019-and-ranks-the-countries-according-to-how-happy-their-citizens-precieve-themselves-to-be.-there-are-six-variables-used-to-explain-life-evaluations-aka-how-happy-the-individuals-perceive-themselves-to-be-in-this-dataset-and-they-are-based-on-what-what-literature-has-previously-shown-is-important-to-explain-differences-in-life-evaluations.-the-data-was-collected-through-a-survey-called-the-gallup-world-poll-and-therefore-is-self-reported.-country-is-the-name-of-the-country-ofcourse.-the-overall-rank-represents-the-ranking-of-the-country-on-the-happiness-scale-with-higher-scores-correlating-better-life-evaluations.-the-score-column-in-the-datasets-is-based-on-the-cantril-ladder-which-asks-respondents-to-rate-their-own-current-lives-on-a-0-10-scale-with-higher-scores-being-the-best-possible-life-for-them.-the-remaining-columns--levels-of-gdp-life-expectancy-generosity-social-support-freedom-and-corruption---have-no-impact-on-the-total-score-but-rather-represent-how-muchwhat-share-of-the-countrys-overall-score-can-be-explained-by-each-of-the-six-factors.-this-dataset-was-interesting-as-it-presents-a-unique-way-of-mesuring-happiness." class="section level5">
+<h5>The two datasets that I will be working with are called “countries” and “X2019”, both of which were found on Kaggle. The dataset “X2019” is a world happiness report for the year 2019 and ranks the countries according to how happy their citizens precieve themselves to be. There are six variables used to explain life evaluations (aka how happy the individuals perceive themselves to be) in this dataset, and they are based on what what literature has previously shown is important to explain differences in life evaluations. The data was collected through a survey called the “Gallup World Poll” and therefore is self-reported. “Country” is the name of the country, ofcourse. The “Overall Rank” represents the ranking of the country on the happiness scale, with higher scores correlating better life evaluations. The “Score” column in the datasets is based on the Cantril ladder which asks respondents to rate their own current lives on a 0-10 scale, with higher scores being the best possible life for them. The remaining columns- “levels of GDP”, “life expectancy”, “generosity”, “social support”, “freedom”, and “corruption” - have no impact on the total “Score” but rather represent how much/what share of the country’s overall “Score” can be explained by each of the six factors. This dataset was interesting as it presents a unique way of mesuring happiness.</h5>
+</div>
+<div id="the-second-dataset-hdev-is-a-human-development-index-hdi-which-is-a-dataset-with-summary-measures-of-acievements-of-important-dimensions-of-human-development-including-education-attained-gross-national-income-and-life-expectancy.-information-about-how-this-dataset-was-acquired-was-obtained-is-not-listed-on-kaggle-the-source-of-the-dataset.-the-dataset-has-8-variables.-the-first-variable-is-named-hdi-rank-which-ranks-the-countries-in-terms-of-how-they-rank-on-the-human-development-index-with-a-higher-rank-corresponding-to-higher-levels-of-human-development-in-the-country.-the-variable-continent-groups-the-countries-accorind-to-the-continent-they-belong-to.-the-next-variable-country-lists-195-countries.-the-column-human-development-index-hdi-has-the-index-which-varies-between-0-and-1-with-values-closer-to-one-representing-higher-levels-of-human-development.-life-expectancy-at-birth-is-a-dimension-of-health.-the-column-expected-years-of-education-is-the-expected-years-of-education-for-children.-while-mean-years-of-education-is-measured-by-the-mean-years-of-education-for-adults-above-25.-the-gross-national-icome-gni-per-capita-is-the-standard-of-the-living-dimension-which-presents-the-economic-health-of-a-country-as-it-represents-refers-to-the-size-of-each-countrys-economy-divided-by-the-population.-the-last-variable-gni-per-capita-minus-hdi-rank2-is-another-means-of-measuring-the-living-dimension-of-a-country-based-not-just-on-economy-but-other-factors-indicated-by-hdi-such-as-education-and-life-expectancy.-i-would-like-to-see-if-there-are-certain-factors-that-correlate-with-a-countrys-happiness." class="section level5">
+<h5>The second dataset “hdev” is a Human Development Index (HDI) which is a dataset with summary measures of acievements of important dimensions of human development including education attained, gross national income and life expectancy. Information about how this dataset was acquired was obtained is not listed on Kaggle, the source of the dataset. The dataset has 8 variables. The first variable is named “HDI Rank” which ranks the countries in terms of how they rank on the Human Development Index, with a higher rank corresponding to higher levels of human development in the Country. The variable “Continent” groups the countries accorind to the continent they belong to. The next variable “Country” lists 195 countries. The column “Human Development Index (HDI)” has the index which varies between 0 and 1, with values closer to one representing higher levels of human development. “Life expectancy at Birth” is a dimension of health. The column “Expected Years of Education” is the expected years of education for children. While “Mean Years of Education” is measured by the mean years of Education for adults above 25. The “Gross National Icome (GNI) per capita” is the standard of the living dimension which presents the economic health of a country as it represents refers to the size of each country’s economy divided by the population. The last variable, “GNI per capita minus HDI Rank2”, is another means of measuring the living dimension of a country based not just on economy but other factors indicated by HDI such as education and life expectancy. I would like to see if there are certain factors that correlate with a country’s “happiness”.</h5>
+</div>
+<div id="both-of-my-datasets-are-already-tidy-so-here-i-go-through-the-process-of-untidying-them-and-cleaning-them-back-up.-first-untidy-my-dataset-named-hdev-by-pivoting-the-country-and-human-development-index-hdi-columns-wider-aka-horizontally-using-pivot_wider.-i-name-this-now-messy-data-as-hdev1.-i-use-head-throughout-the-project-to-give-a-glimpse-of-the-new-datasets-created-for-comparision." class="section level5">
+<h5>Both of my datasets are already tidy, so here I go through the process of untidying them and cleaning them back up. First untidy my dataset named “hdev” by pivoting the “Country” and “Human Development Index (HDI)” columns wider (aka horizontally) using pivot_wider. I name this now messy data as “hdev1”. I use head() throughout the project to give a glimpse of the new datasets created for comparision.</h5>
+<pre class="r"><code>head(hdev, 10)</code></pre>
+<pre><code>## Error in head(hdev, 10): object &#39;hdev&#39; not found</code></pre>
+<pre class="r"><code>hdev1 &lt;- hdev %&gt;% pivot_wider(names_from=&quot;Country&quot;, values_from=`Human Development Index (HDI)`)</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;hdev&#39; not found</code></pre>
+</div>
+<div id="tidy-up-the-now-messed-up-dataset-hdev1-back-into-the-country-and-hdi-columns-here-i-use-pivot_wider-to-gather-the-column-names-from-7-201-back-into-country-and-i-gather-the-values-under-these-columns-back-into-one-column-named-hdi.-note-i-renamed-human-development-index-hdi-to-hdi-because-its-easier-to-type-out." class="section level5">
+<h5>Tidy up the now messed up dataset, “hdev1” back into the “Country” and “HDI” columns Here, I use pivot_wider to gather the column names from 7-201 back into “Country” and I gather the values under these columns back into one column named “HDI”. Note: I renamed “Human Development Index (HDI)” to “HDI” because it’s easier to type out.</h5>
+<pre class="r"><code>hdev2 &lt;- hdev1 %&gt;% pivot_longer(cols=c(8:195), names_to=&quot;Country&quot;, values_to = &quot;HDI&quot;)</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;hdev1&#39; not found</code></pre>
+</div>
+<div id="however-by-tidying-up-the-data-again-we-introduce-thousands-of-na-values.-therefore-i-need-to-filter-out-all-nas-in-the-hdi-column-and-save-as-new-dataframe-named-hdev3.-i-used-head-in-order-to-show-that-this-re-tidyed-dataframe-and-the-original-are-the-same." class="section level5">
+<h5>However, by tidying up the data again, we introduce thousands of NA values. Therefore, I need to filter out all NAs in the “HDI” column and save as new dataframe named “hdev3”. I used head() in order to show that this re-tidyed dataframe and the original are the same.</h5>
+<pre class="r"><code>hdev3 &lt;- hdev2 %&gt;% filter(!is.na(HDI))</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;hdev2&#39; not found</code></pre>
+</div>
+<div id="next-i-untidy-and-re-tidy-my-second-dataset-named-x2019.-first-untidy-x2019-using-pivot_wider.-i-saved-it-as-a-new-dataframe-named-x2019_a." class="section level5">
+<h5>Next, I untidy and re-tidy my second dataset named “X2019”. First, Untidy “X2019” using pivot_wider. I saved it as a new dataframe named “X2019_a”.</h5>
+<pre class="r"><code>head(X2019, 10)</code></pre>
+<pre><code>## Error in head(X2019, 10): object &#39;X2019&#39; not found</code></pre>
+<pre class="r"><code>X2019_a &lt;- X2019 %&gt;% pivot_wider(names_from=`Country or region`, values_from=Score)</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;X2019&#39; not found</code></pre>
+</div>
+<div id="tidy-x2019_a-by-gathering-the-column-names-from-columns-8-through-163-into-the-column-named-country_region-and-gathering-the-values-under-these-columns-into-a-the-column-named-score.-save-this-as-a-new-dataframe-named-x2019_b." class="section level5">
+<h5>Tidy “X2019_a” by gathering the column names from columns 8 through 163 into the column named “Country_region” and gathering the values under these columns into a the column named “Score”. Save this as a new dataframe named “X2019_b”.</h5>
+<pre class="r"><code>X2019_b &lt;- X2019_a %&gt;% pivot_longer(cols=c(8:163), names_to=&quot;Country_region&quot;, values_to=&quot;Score&quot;)</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;X2019_a&#39; not found</code></pre>
+</div>
+<div id="filter-out-all-na-values-in-the-score-column-and-save-as-new-dataframe-named-x2019_c.-i-used-head-in-order-to-show-that-this-re-tidyed-dataframe-and-the-original-are-the-same." class="section level5">
+<h5>Filter out all NA values in the “Score” column and save as new dataframe named “X2019_c”. I used head() in order to show that this re-tidyed dataframe and the original are the same.</h5>
+<pre class="r"><code>X2019_c &lt;- X2019_b %&gt;% filter(!is.na(Score))</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;X2019_b&#39; not found</code></pre>
+</div>
+</div>
+<div id="part-ii---merging-the-datasets" class="section level2">
+<h2>Part II - Merging the Datasets</h2>
+<div id="i-wanted-to-join-my-two-datasets-by-the-common-variable-country.-however-the-hdev-dataset-simple-has-his-column-titled-as-country-while-my-x2019-dataset-has-this-common-column-titled-as-country-or-region.-therefore-i-first-had-to-change-the-names-in-my-datasets-to-be-equivalent-so-that-i-can-join-them." class="section level5">
+<h5>I wanted to join my two datasets by the common variable, “Country”. However, the “hdev” dataset simple has his column titled as “Country” while my X2019 dataset has this common column titled as “Country or Region”. Therefore, I first had to change the names in my datasets to be equivalent so that I can join them.</h5>
+<pre class="r"><code>colnames(X2019)[2] &lt;-&quot;Country&quot;</code></pre>
+<pre><code>## Error in colnames(X2019)[2] &lt;- &quot;Country&quot;: object &#39;X2019&#39; not found</code></pre>
+</div>
+<div id="recode-some-of-the-country-names-in-countries-dataset-in-order-to-match-it-to-the-x2019-dataset-better.-after-i-recdode-the-names-of-some-of-the-countries-i-then-create-a-new-table-of-values-with-the-updated-names.-i-then-use-the-mutate-function-to-replace-the-original-names-with-the-new-column-named-country1." class="section level5">
+<h5>Recode some of the Country names in countries dataset in order to match it to the X2019 dataset better. After I recdode the names of some of the countries, I then create a new table of values with the updated names. I then use the mutate function to replace the original names with the new column named “Country1”.</h5>
+<pre class="r"><code>Country1 &lt;- hdev$Country %&gt;% 
+  recode(&quot;Trinidad and Tobago&quot; = &quot;Trinidad &amp; Tobago&quot;) %&gt;% 
+  recode(&quot;Korea (Republic of)&quot;= &quot;South Korea&quot;) %&gt;% 
+  recode(&quot;Bolivia (Plurinational State of)&quot; = &quot;Bolivia&quot;) %&gt;% 
+  recode(&quot;Cyprus&quot;=&quot;Northern Cyprus&quot;) %&gt;% 
+  recode(&quot;Russian Federation&quot; = &quot;Russia&quot;) %&gt;% 
+  recode(&quot;Moldova (Republic of)&quot;= &quot;Moldova&quot;) %&gt;% 
+  recode(&quot;Hong Kong, China (SAR)&quot; = &quot;Hong Kong&quot;) %&gt;% 
+  recode(&quot;The former Yugoslav Republic of Macedonia&quot; = &quot;North Macedonia&quot;) %&gt;% 
+  recode(&quot;Viet Nam&quot; = &quot;Vietnam&quot;) %&gt;%
+  recode(&quot;Congo (Democratic Republic of the)&quot;=&quot;Congo (Kinshasa)&quot;) %&gt;% 
+  recode(&quot;Congo&quot;=&quot;Congo (Brazzaville)&quot;) %&gt;% 
+  recode(&quot;Lao People&#39;s Democratic Republic&quot;=&quot;Laos&quot;) %&gt;% 
+  recode(&quot;Venezuela (Bolivarian Republic of)&quot; = &quot;Venezuela&quot;) %&gt;% 
+  recode(&quot;Palestine, State of&quot;= &quot;Palestinian Territories&quot;) %&gt;% 
+  recode(&quot;Iran (Islamic Republic of)&quot; = &quot;Iran&quot;) %&gt;%
+  recode(&quot;Syrian Arab Republic&quot; = &quot;Syria&quot;) %&gt;% 
+  recode(&quot;Tanzania (United Republic of)&quot;=&quot;Tanzania&quot;)</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;hdev&#39; not found</code></pre>
+<pre class="r"><code>hdev &lt;- hdev %&gt;% mutate(Country1) %&gt;% select(-c(Country))</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;hdev&#39; not found</code></pre>
+<pre class="r"><code>hdev &lt;- hdev %&gt;% rename(&quot;Country&quot;=Country1)</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;hdev&#39; not found</code></pre>
+</div>
+<div id="next-i-merged-my-two-datasets-by-using-right_join.-the-right-join-takes-the-database-on-the-right-x2019-and-matches-observations-by-the-common-variable-country-from-the-database-on-the-left-which-is-hdev.-in-other-words-it-keeps-all-the-observations-from-x2019-and-adds-matching-observations-from-the-hdev-dataset.-in-doing-the-merge-i-lost-about-39-observations-from-hdev-dataset.-i-still-keep-the-majority-of-my-observations-so-i-do-not-necessarily-see-this-as-a-problem.-however-i-choose-this-type-of-merge-in-particular-because-i-am-more-interest-in-my-x2019-dataset-which-represents-the-world-happiness." class="section level5">
+<h5>Next, I merged my two datasets by using right_join. The right join takes the database on the right, “X2019” and matches observations by the common variable “Country” from the database on the left which is “hdev”. In other words, it keeps all the observations from “X2019” and adds matching observations from the “hdev” dataset. In doing the merge, I lost about 39 observations from hdev dataset. I still keep the majority of my observations, so I do not necessarily see this as a problem. However, I choose this type of merge in particular because I am more interest in my “X2019” dataset which represents the world happiness.</h5>
+<pre class="r"><code>merge &lt;- right_join(hdev, X2019, by= &quot;Country&quot;)</code></pre>
+<pre><code>## Error in right_join(hdev, X2019, by = &quot;Country&quot;): object &#39;hdev&#39; not found</code></pre>
+<pre class="r"><code>head(merge, 10)</code></pre>
+<pre><code>##                        
+## 1 function (x, y, ...) 
+## 2 UseMethod(&quot;merge&quot;)</code></pre>
+</div>
+</div>
+<div id="part-iii---creating-summary-statistics" class="section level2">
+<h2>Part III - Creating Summary Statistics</h2>
+<div id="i-use-one-of-the-six-core-dplyr-functions-filter-in-order-to-grab-columns-from-the-merge-dataset-which-belong-to-the-continent-africa.-then-i-pipe-this-into-the-mean-function-inside-of-summarize.-this-gives-us-an-the-mean-score-for-for-the-countries-that-belong-to-the-african-continent-which-is-4.36." class="section level5">
+<h5>I use one of the six core dplyr functions, filter(), in order to grab columns from the merge dataset which belong to the continent “Africa”. Then I pipe this into the mean function inside of summarize(). This gives us an the mean score for for the countries that belong to the African continent which is 4.36.</h5>
+<pre class="r"><code>filter(merge, Continent ==&quot;Africa&quot;) %&gt;% summarize(mean(Score))</code></pre>
+<pre><code>## Error in UseMethod(&quot;filter_&quot;): no applicable method for &#39;filter_&#39; applied to an object of class &quot;function&quot;</code></pre>
+</div>
+<div id="next-i-used-the-function-group_by-to-group-my-observations-by-the-continent.-then-i-found-the-mean-life-expectancy-at-birth-using-the-summarise-function-and-gave-this-column-the-name-avg_life_expec.-finally-i-piped-this-into-arrange-to-arrange-by-the-avg_life_expec-which-gave-me-the-values-in-an-ascending-manner-for-all-6-continents." class="section level5">
+<h5>Next, I used the function group_by() to group my observations by the continent. Then I found the mean “Life expectancy at Birth” using the summarise function and gave this column the name “avg_life_expec”. Finally, I piped this into arrange to arrange by the “avg_life_expec” which gave me the values in an ascending manner for all 6 continents.</h5>
+<pre class="r"><code>merge %&gt;% 
+ group_by(Continent) %&gt;%
+ summarise(avg_life_expec = mean(`Life Expectancy at Birth`, na.rm=TRUE)) %&gt;% 
+ arrange(avg_life_expec)</code></pre>
+<pre><code>## Error in UseMethod(&quot;group_by_&quot;): no applicable method for &#39;group_by_&#39; applied to an object of class &quot;function&quot;</code></pre>
+</div>
+<div id="next-i-filtered-the-top-50-countries-one-third-of-my-observations-by-their-hdi-rank.-these-are-the-top-countries-in-the-world-for-which-data-is-included-who-have-the-most-advancements-in-their-human-development-index.-then-i-selected-all-the-columns-belonging-to-these-countries.-then-i-used-summarize-to-find-the-iqr-for-the-gross-national-income-gni-per-capita-for-these-countries-which-is-19033.75.-the-iqr-describes-the-middle-50-of-the-values-and-presents-a-good-measure-of-spread-as-it-is-not-affected-by-outliers.-according-to-the-values-we-see-that-there-is-quite-a-large-spreadrange-in-the-gni-per-capita-even-among-these-top-13-of-the-countries-with-the-best-hdi-ranks." class="section level5">
+<h5>Next, I filtered the top 50 countries (one-third of my observations) by their HDI rank. These are the top countries in the world for which data is included who have the most advancements in their Human Development Index. Then, I selected all the columns belonging to these countries. Then I used summarize to find the IQR for the “Gross National Income (GNI) per Capita” for these countries, which is $19,033.75. The IQR describes the middle 50% of the values and presents a good measure of spread as it is not affected by outliers. According to the values, we see that there is quite a large spread/range in the GNI per capita even among these top 1/3 of the countries with the best HDI ranks.</h5>
+<pre class="r"><code>merge %&gt;%
+  filter(`HDI Rank` &lt; 50) %&gt;%
+  select(everything()) %&gt;% 
+  summarize(IQR(`Gross National Income (GNI) per Capita`))</code></pre>
+<pre><code>## Error in UseMethod(&quot;filter_&quot;): no applicable method for &#39;filter_&#39; applied to an object of class &quot;function&quot;</code></pre>
+</div>
+<div id="here-i-find-the-average-years-of-education-after-grouping-the-countries-by-the-continent-that-they-belong-to.-according-to-the-data-oceania-has-the-highest-average-years-of-education-while-africa-has-the-lowest." class="section level5">
+<h5>Here, I find the average years of Education after grouping the countries by the continent that they belong to. According to the data, Oceania has the highest average years of education while Africa has the lowest.</h5>
+<pre class="r"><code>merge %&gt;% group_by(Continent) %&gt;% summarize(mean(`Mean Years of Education`))</code></pre>
+<pre><code>## Error in UseMethod(&quot;group_by_&quot;): no applicable method for &#39;group_by_&#39; applied to an object of class &quot;function&quot;</code></pre>
+</div>
+<div id="next-i-once-again-grouped-the-countries-by-the-continent-and-found-the-maximum-score-in-each-of-the-continents.-according-to-the-data-europe-has-the-highest-scores-of-life-evaluations-with-africa-reporting-the-lowest-levels-of-life-evaluation." class="section level5">
+<h5>Next, I once again grouped the countries by the continent and found the maximum score in each of the continents. According to the data Europe has the highest scores of life evaluations with Africa reporting the lowest levels of life evaluation.</h5>
+<pre class="r"><code>merge %&gt;% group_by(Continent) %&gt;% summarise(max(Score)) </code></pre>
+<pre><code>## Error in UseMethod(&quot;group_by_&quot;): no applicable method for &#39;group_by_&#39; applied to an object of class &quot;function&quot;</code></pre>
+</div>
+<div id="using-mean-inside-of-summarize-i-found-the-mean-gni-per-capita-among-the-countries-after-filtering-out-the-four-na-values.-the-mean-gni-per-capital-is-17655.42.-the-next-statistic-is-found-by-using-the-median-function-inside-of-summarize.-according-to-this-the-median-gni-per-capita-is-11831.5.-since-the-mean-is-greater-than-the-median-this-suggests-that-the-gni-per-capita-has-a-positive-skew." class="section level5">
+<h5>Using mean() inside of summarize I found the mean GNI per capita among the countries after filtering out the four NA values. The mean GNI per capital is $17,655.42. The next statistic is found by using the median function inside of summarize. According to this, the median GNI per capita is $11,831.5. Since the mean is greater than the median, this suggests that the GNI per capita has a positive skew.</h5>
+<pre class="r"><code>merge %&gt;% summarise(&quot;mean_GNI_per_capita&quot;=mean(`Gross National Income (GNI) per Capita`, na.rm=TRUE))</code></pre>
+<pre><code>## Error in UseMethod(&quot;summarise_&quot;): no applicable method for &#39;summarise_&#39; applied to an object of class &quot;function&quot;</code></pre>
+<pre class="r"><code>merge %&gt;% summarise(&quot;median_GNI_per_capita&quot;=median(`Gross National Income (GNI) per Capita`, na.rm=TRUE))</code></pre>
+<pre><code>## Error in UseMethod(&quot;summarise_&quot;): no applicable method for &#39;summarise_&#39; applied to an object of class &quot;function&quot;</code></pre>
+</div>
+<div id="here-i-create-10-different-summary-statistics-using-summarize-and-summarize-with-group_by.-the-first-statistic-i-use-summarize_all-to-find-out-the-number-of-na-values-in-each-of-the-16-columns-in-the-merged-data.-according-to-this-i-have-four-na-values-in-columns-in-columns-1-and-3-8-and-6-na-values-in-column-2-of-the-merged-dataset." class="section level5">
+<h5>Here, I create 10 different summary statistics using summarize() and summarize() with group_by(). The first statistic, I use summarize_all() to find out the number of NA values in each of the 16 columns in the merged data. According to this, I have four NA values in columns in columns 1 and 3-8, and 6 NA values in column 2 of the merged dataset.</h5>
+<pre class="r"><code>merge %&gt;% summarize_all(~sum(is.na(.)))</code></pre>
+<pre><code>## Error in UseMethod(&quot;tbl_vars&quot;): no applicable method for &#39;tbl_vars&#39; applied to an object of class &quot;function&quot;</code></pre>
+</div>
+<div id="next-i-created-a-correlation-matrix-using-cor-on-the-numeric-values-of-my-merged-dataset.-in-order-to-do-so-i-first-removed-any-na-values-in-my-dataset-using-na.omit.-this-removed-about-6-observations-and-i-saved-these-new-values-as-a-dataframe-named-merge1.-i-then-selected-my-numeric-values-using-selet_ifis.numeric-and-saved-this-as-a-dataframe-called-merge_nums.-i-then-created-a-correlation-matrix-on-this." class="section level5">
+<h5>Next, I created a correlation matrix using cor() on the numeric values of my merged dataset. In order to do so, I first removed any NA values in my dataset using na.omit(). This removed about 6 observations and I saved these new values as a dataframe named “merge1”. I then selected my numeric values using selet_if(is.numeric) and saved this as a dataframe called “merge_nums”. I then created a correlation matrix on this.</h5>
+</div>
+<div id="based-on-the-correlation-matrix-it-appears-that-there-is-a-strong-negative-correlation-between-hdi-rank-and-variables-that-were-taken-into-creating-this-index-as-expected.-the-variable-i-was-particularly-interested-about-overall-rank-which-rated-the-happiness-of-these-countries-seems-to-be-most-correlation-with-social-support-a-healthy-life-expectancy-and-income." class="section level5">
+<h5>Based on the correlation matrix, it appears that there is a strong negative correlation between HDI rank and variables that were taken into creating this index as expected. The variable I was particularly interested about “Overall rank” which rated the “happiness” of these countries seems to be most correlation with social support, a healthy life expectancy and income.</h5>
+<pre class="r"><code>install.packages(&quot;corrplot&quot;)</code></pre>
+<pre><code>## Error in contrib.url(repos, &quot;source&quot;): trying to use CRAN without setting a mirror</code></pre>
+<pre class="r"><code>merge1 &lt;- na.omit(merge)
+merge_nums &lt;- merge1 %&gt;% select_if(is.numeric)</code></pre>
+<pre><code>## Error in UseMethod(&quot;tbl_vars&quot;): no applicable method for &#39;tbl_vars&#39; applied to an object of class &quot;function&quot;</code></pre>
+<pre class="r"><code>cor(merge_nums)</code></pre>
+<pre><code>## Error in is.data.frame(x): object &#39;merge_nums&#39; not found</code></pre>
+</div>
+<div id="here-i-use-my-dataset-with-all-nas-omitted-called-merge1-and-mutate-to-create-a-new-column-in-my-dataset-called-percentile_rank.-i-use-the-function-ntile-which-calculates-percentile-ranks-to-calculate-a-percentile-rank-of-the-variable-social-support.-this-variable-represents-how-much-of-the-countrys-overall-score-can-be-explained-by-the-social-support-individuals-recieve." class="section level5">
+<h5>Here, I use my dataset with all NA’s omitted, called merge1 and mutate() to create a new column in my dataset called “percentile_rank”. I use the function ntile which calculates percentile ranks to calculate a percentile rank of the variable “Social support”. This variable represents how much of the country’s overall “Score” can be explained by the social support individuals recieve.</h5>
+<pre class="r"><code>library(dplyr)
+merge2 &lt;- merge1 %&gt;% mutate(percentile_rank_SS = ntile(`Social support`, 100))</code></pre>
+<pre><code>## Error in UseMethod(&quot;mutate_&quot;): no applicable method for &#39;mutate_&#39; applied to an object of class &quot;function&quot;</code></pre>
+</div>
+<div id="the-next-statistic-uses-sd-inside-of-summarize-to-find-the-sd-of-these-the-mean-years-of-education-grouped-by-the-continent.-according-to-the-data-the-with-the-largest-standard-deviation-is-asia-followed-by-africa.-this-means-that-the-range-in-mean-years-of-education-is-most-spread-out-in-these-countries.-meanwhile-the-standard-deviations-are-much-smaller-in-oceania-and-south-america-meaning-the-mean-years-of-education" class="section level5">
+<h5>The next statistic uses sd() inside of summarize to find the sd of these the “Mean Years of Education” grouped by the continent. According to the data, the with the largest standard deviation is Asia, followed by Africa. This means that the range in Mean years of education is most spread out in these countries. Meanwhile, the standard deviations are much smaller in Oceania and South America, meaning the mean Years of Education</h5>
+<pre class="r"><code>merge %&gt;% group_by(Continent) %&gt;% summarise(sd(`Mean Years of Education`, na.rm=TRUE))</code></pre>
+<pre><code>## Error in UseMethod(&quot;group_by_&quot;): no applicable method for &#39;group_by_&#39; applied to an object of class &quot;function&quot;</code></pre>
+</div>
+</div>
+<div id="part-iv---make-visualizations" class="section level2">
+<h2>Part IV - Make visualizations</h2>
+<div id="a-correlation-heatmap-is-generated-using-my-datast-merge1-which-has-all-na-values-removed.-then-using-select_if-i-was-able-to-select-only-the-numeric-values-which-was-then-piped-into-cor-to-create-the-correlation-matrix.-this-is-then-piped-into-ggplot-where-the-aes-function-is-used-to-create-the-fill-based-on-the-correlation-value-geom_text-can-then-be-added-to-tell-the-plot-what-text-to-add-inside-the-heatmaps.-using-size-i-was-able-to-change-the-size-of-the-text-smaller-to-ensure-that-the-values-can-be-read-and-using-aes-again-inside-of-geom_text-the-x--and-y-labels-are-assigned.-the-function-scale_fill_gradient2-is-used-to-assign-different-colors-to-the-heatmap-based-on-the-correlation.-high-positive-correlations-are-assigned-the-color-blue-and-low-negative-correlations-are-assigned-the-color-red.-using-theme-we-can-further-change-the-plot-by-changing-the-angle-of-the-test-and-the-size-of-the-axis-labels-as-well-as-add-a-legend.-based-on-the-plot-we-can-see-that-generosity-has-almost-no-correlation-with-any-of-the-variables.-additionally-as-expected-variables-such-as-life-expectancy-education-social-support-etc-are-positively-correlated-with-each-other-and-with-other-variables-in-general." class="section level5">
+<h5>A correlation heatmap is generated using my datast “merge1”, which has all NA values removed. Then, using select_if(), I was able to select only the numeric values which was then piped into cor to create the correlation matrix. This is then piped into ggplot where the aes function is used to create the fill based on the correlation value, Geom_text can then be added to tell the plot what text to add inside the heatmaps. Using size, I was able to change the size of the text smaller to ensure that the values can be read and using aes again inside of geom_text, the x- and y-labels are assigned. The function “scale_fill_gradient2” is used to assign different colors to the heatmap based on the correlation. High (positive) correlations are assigned the color blue and low (negative) correlations are assigned the color red. Using theme, we can further change the plot by changing the angle of the test and the size of the axis labels, as well as add a legend. Based on the plot, we can see that “generosity” has almost no correlation with any of the variables. Additionally, as expected variables such as life expectancy, education, social support, etc, are positively correlated with each other and with other variables in general.</h5>
+<pre class="r"><code>merge1 %&gt;% select_if(is.numeric) %&gt;% cor %&gt;% as.data.frame %&gt;%
+  rownames_to_column%&gt;%pivot_longer(-1)%&gt;% 
+  ggplot(aes(rowname,name,fill=value))+geom_tile()+
+  geom_text(size =2, aes(label=round(value,2)))+xlab(&quot;&quot;)+ylab(&quot;&quot;) +
+  scale_fill_gradient2(low=&quot;red&quot;,high=&quot;blue&quot;) + 
+  theme(axis.text.x = element_text(angle=45, hjust=1), text = element_text(size=8))+
+  ggtitle(&quot;Correlation Heatmap of numeric variables in merged dataset&quot;)</code></pre>
+<pre><code>## Error in UseMethod(&quot;tbl_vars&quot;): no applicable method for &#39;tbl_vars&#39; applied to an object of class &quot;function&quot;</code></pre>
+</div>
+<div id="in-this-plot-i-create-a-scatterplot-using-geom_point-and-my-dataset-merge1.-according-to-out-correlation-heatmap-there-is-a-positive-correlation-of-0.6-between-the-variables-gross-national-income-gni-per-capita-and-mean-years-of-education-and-this-can-be-observed-most-clearly-through-the-african-countries-in-the-plot-below.-however-i-wanted-to-explore-how-these-variables-differ-across-continents-as-well-in-the-below-plot.-here-i-use-aes-inside-of-ggplot-to-assign-the-x-and-y-axis-which-are-gni-per-capital-and-mean-years-respectively.-then-using-aes-inside-of-geom_point-i-was-able-to-assign-the-color-of-the-points-according-to-the-continent-that-country-belongs-to-and-the-size-of-the-points-according-to-the-gni-per-capita-of-that-country.-based-on-this-plot-we-can-observe-that-the-continent-of-europe-leads-the-world-in-terms-of-the-mean-years-of-education-and-gni-per-capita.-whats-unexpected-in-that-although-many-asian-countires-are-on-the-higher-range-in-terms-of-the-education-acquired-the-gni-per-capita-is-much-larger-than-the-european-countries." class="section level5">
+<h5>In this plot, I create a scatterplot using geom_point() and my dataset, merge1. According to out correlation heatmap, there is a positive correlation of 0.6 between the variables “Gross National Income (GNI) per Capita” and “Mean Years of Education”, and this can be observed most clearly through the African countries in the plot below. However, I wanted to explore how these variables differ across continents as well in the below plot. Here, I use aes() inside of ggplot to assign the x and y-axis which are GNI per capital and Mean Years, respectively. Then, using aes() inside of geom_point, I was able to assign the color of the points according to the continent that country belongs to and the size of the points according to the GNI per capita of that country. Based on this plot, we can observe that the continent of Europe leads the world in terms of the mean years of education and GNI per capita. What’s unexpected in that although many Asian countires are on the higher range in terms of the education acquired, the GNI per capita is much larger than the European countries.</h5>
+<pre class="r"><code>ggplot(merge1, aes(`Gross National Income (GNI) per Capita`,`Mean Years of Education`))+
+  geom_point(aes(color=Continent, size=`Gross National Income (GNI) per Capita`)) +
+  ggtitle(&quot;Mean Years of Education vs. GNI per capita by Continent&quot;)</code></pre>
+<pre><code>## Error:   You&#39;re passing a function as global data.
+##   Have you misspelled the `data` argument in `ggplot()`</code></pre>
+</div>
+<div id="one-factor-that-i-was-especially-interested-about-is-how-much-do-the-six-variables-from-columns-1217-in-my-merged-dataset-contribute-to-the-overall-happines-or-score-for-the-countries.-in-order-to-do-so-i-decided-to-fact_wrap-by-each-of-these-6-six-columns-and-create-a-bar-plot.-i-first-gathered-all-the-variables-excluding-the-first-11-columns-of-my-merged-dataset-and-saved-these-gathered-variables-under-the-key-var-and-the-values-under-values.-next-i-piped-this-into-ggplot-and-assigned-the-x-and-y-axis.-the-x-axis-represents-the-continent-that-the-countries-belong-to-and-the-y-axis-represents-the-score-value.-using-geom_bar-i-was-able-to-create-a-bar-plot-while-also-customizing-the-x-angle-text-inside-this-function.-next-i-was-then-able-to-facet-wrap-by-the-gathered-variables-using-the-key-var.-next-error-bars-were-added-to-see-if-there-was-a-large-deviation-anywhere.-based-on-the-plots-we-can-tell-that-gdp-per-capita-social-support-and-healthy-life-expectancy-contribute-the-most-to-the-happiness-of-individuals-within-a-country.-additionally-the-continent-of-oceania-seems-to-given-the-highest-scores-consistently-across-all-6-levels.-freedom-to-make-life-choices-perceptions-of-corruption-and-generosity-seem-to-contribute-little-to-the-happiness-reported-by-the-countries." class="section level5">
+<h5>One factor that I was especially interested about is how much do the six variables from columns 12:17 in my merged dataset contribute to the overall “happines” or “Score” for the countries. In order to do so, I decided to fact_wrap() by each of these 6 six columns and create a bar plot. I first gathered all the variables excluding the first 11 columns of my merged dataset and saved these gathered variables under the key “var” and the values under “values”. Next I piped this into ggplot and assigned the x and y axis. The x-axis represents the continent that the countries belong to and the y-axis represents the score value. Using geom_bar I was able to create a bar plot while also customizing the x-angle text inside this function. Next, I was then able to facet wrap by the gathered variables using the key “var”. Next, error bars were added to see if there was a large deviation anywhere. Based on the plots, we can tell that GDP per capita, social support, and Healthy life expectancy contribute the most to the happiness of individuals within a country. Additionally, the continent of Oceania seems to given the highest scores consistently across all 6 levels. Freedom to make life choices, perceptions of corruption and Generosity seem to contribute little to the happiness reported by the countries.</h5>
+<pre class="r"><code>merge1 %&gt;%
+  gather(-`HDI Rank`, -Continent, -`Human Development Index (HDI)`, -`Life Expectancy at Birth`, -`Expected Years of Education`, -`Mean Years of Education`, -`Gross National Income (GNI) per Capita`, -`GNI per Capita Rank Minus HDI Rank`, -Country, -`Overall rank`, -Score, key = &quot;var&quot;, value = &quot;value&quot;) %&gt;% 
+  ggplot(aes(x = Continent, y = value)) + theme_minimal() +
+    geom_bar(stat=&quot;summary&quot;) + theme(axis.text.x = element_text(angle=45)) + 
+    facet_wrap(~ var) + geom_errorbar(stat=&quot;summary&quot;, width=0.5) + ggtitle(&quot;Contribution of 6 Different Variables to the Happiness Score of the Continents&quot;) </code></pre>
+<pre><code>## Error in gather_(data, key_col = compat_as_lazy(enquo(key)), value_col = compat_as_lazy(enquo(value)), : unused arguments (-Continent, -`Human Development Index (HDI)`, -`Life Expectancy at Birth`, -`Expected Years of Education`, -`Mean Years of Education`, -`Gross National Income (GNI) per Capita`, -`GNI per Capita Rank Minus HDI Rank`, -Country, -`Overall rank`, -Score)</code></pre>
+</div>
+</div>
+<div id="part-v---cluster-analysis" class="section level2">
+<h2>Part V - Cluster Analysis</h2>
+<div id="in-this-next-part-i-will-be-performing-a-pam-clustering.the-first-step-is-to-decide-the-number-of-clusters-or-k-to-use.-to-determine-the-number-of-clusters-to-use-we-can-use-the-average-silhouette-method-which-determines-how-well-each-object-lies-within-its-cluster.-this-method-computes-the-average-silhouette-width-to-the-optimal-number-of-clusters-k.-ideally-a-high-average-silhouette-width-indicates-a-good-clustering.-here-i-use-the-silhouette-function-which-is-within-the-cluster-package-to-find-the-average-silhouette-width-for-2-10-clusters.-note-i-first-selected-only-my-numeric-data-and-saved-it-as-a-dataframe-called-pam_dat.-based-on-the-results-2-clusters-maximize-the-average-silhouette-values-with-the-next-best-option-being-6-clusters." class="section level5">
+<h5>In this next part, I will be performing a PAM Clustering.The first step is to decide the number of clusters, or k, to use. To determine the number of clusters to use, we can use the “Average Silhouette Method” which determines how well each object lies within its cluster. This method computes the average silhouette width to the optimal number of clusters, k. Ideally, a high average silhouette width indicates a good clustering. Here, I use the silhouette function which is within the “cluster” package to find the average silhouette width for 2-10 clusters. Note: I first selected only my numeric data and saved it as a dataframe called pam_dat. Based on the results, 2 clusters maximize the average silhouette values, with the next best option being 6 clusters.</h5>
+<pre class="r"><code>library(cluster)
+
+# Note: I removed several variables which are based on rank or are a duplicate of another
+# variable in the dataset. Additionally &quot;generosity&quot; and &quot;Freedom to make life choices&quot; 
+# were removed as they not significantly contribute to my &quot;score&quot; variable as seen in the
+# correlation heatmap. Also, had to do this as my final pairwise combinations with all of
+# these numeric variables resulted in a a plot that was difficult to read regarless of 
+# how I managed to change the font size. 
+pam1 &lt;- merge1 %&gt;% select(-&quot;HDI Rank&quot;, -&quot;GNI per Capita Rank Minus HDI Rank&quot;, -&quot;Overall rank&quot;, -&quot;Expected Years of Education&quot;, -&quot;Generosity&quot;, -&quot;Perceptions of corruption&quot;, -&quot;Freedom to make life choices&quot;, -&quot;Healthy life expectancy&quot;)</code></pre>
+<pre><code>## Error in UseMethod(&quot;select_&quot;): no applicable method for &#39;select_&#39; applied to an object of class &quot;function&quot;</code></pre>
+<pre class="r"><code>pam_dat &lt;- pam1 %&gt;%select_if(is.numeric)</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;pam1&#39; not found</code></pre>
+<pre class="r"><code>sil_width&lt;-vector() # This creates an empty vector to hold mean sil width
+for(i in 2:10){
+kms &lt;- kmeans(pam_dat,centers=i) #compute k-means solution on my numeric values
+sil &lt;- silhouette(kms$cluster,dist(pam_dat)) #get sil widths
+sil_width[i]&lt;-mean(sil[,3]) #takes averages
+}</code></pre>
+<pre><code>## Error in kmeans(pam_dat, centers = i): object &#39;pam_dat&#39; not found</code></pre>
+<pre class="r"><code>ggplot()+geom_line(aes(x=1:10,y=sil_width))+scale_x_continuous(name=&quot;Number of clusters K&quot;, breaks=1:10) + scale_y_continuous(name=&quot;Average Silhouettes&quot;)</code></pre>
+<pre><code>## Error: Aesthetics must be either length 1 or the same as the data (10): y</code></pre>
+<p><img src="/project1_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+</div>
+<div id="now-i-can-run-my-cluster-analysis-using-the-pam-method-using-the-function-pam-on-all-of-numeric-variables-using-k2." class="section level5">
+<h5>Now, I can run my cluster analysis using the PAM method using the function pam() on all of numeric variables using k=2.</h5>
+<pre class="r"><code>library(cluster)
+pam_values &lt;- pam1 %&gt;% select_if(is.numeric) %&gt;%pam(2)</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;pam1&#39; not found</code></pre>
+<pre class="r"><code>pam_values</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;pam_values&#39; not found</code></pre>
+</div>
+<div id="here-i-first-create-a-dataframe-called-final-with-the-cluster-data-added-in-as-a-new-column-using-mutate-next-i-create-a-matrix-with-this-which-groups-by-the-continent.-finally-i-tell-r-where-to-gather-the-names-and-values-from-in-the-matrix.-based-on-the-results-of-the-cluster-all-the-observations-belonging-to-the-continents-of-africa-south-america-and-oceania-were-assigned-to-either-one-or-the-other-cluster.-however-this-is-not-true-of-the-countries-belonging-to-the-continents-of-asia-europe-and-north-america." class="section level5">
+<h5>Here, I first create a dataframe called final with the cluster data added in as a new column using mutate() Next, I create a matrix with this which groups by the Continent. Finally, I tell r where to gather the names and values from in the matrix. Based on the results of the cluster, all the observations belonging to the continents of Africa, South America and Oceania were assigned to either one or the other cluster. However, this is not true of the countries belonging to the continents of Asia, Europe and North America.</h5>
+<pre class="r"><code>final&lt;-pam1 %&gt;% mutate(cluster=as.factor(pam_values$clustering))</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;pam1&#39; not found</code></pre>
+<pre class="r"><code>confmat&lt;- final %&gt;% group_by(Continent) %&gt;% count(cluster) %&gt;% arrange(desc(n)) %&gt;%
+  pivot_wider(names_from=&quot;cluster&quot;,values_from=&quot;n&quot;,values_fill = list(&#39;n&#39;=0))</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;final&#39; not found</code></pre>
+<pre class="r"><code>confmat</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;confmat&#39; not found</code></pre>
+</div>
+<div id="based-on-the-matrix-created-above-i-can-check-for-accuracy-of-my-clusters.-based-on-the-results-the-accuracy-is-0.36.-as-a-result-of-this-low-accuracy-the-clusters-do-not-seem-to-be-a-well-fit-for-the-data.-note-i-also-tried-to-cluster-my-data-with-k6-and-repeated-the-above-steps.-however-this-yeiled-a-lower-accuracy-of-0.28-therefore-i-decided-to-keep-my-original-clusters-of-2." class="section level5">
+<h5>Based on the matrix created above, I can check for accuracy of my clusters. Based on the results, the accuracy is 0.36. As a result of this low accuracy, the clusters do not seem to be a well fit for the data. NOTE: I also tried to cluster my data with k=6 and repeated the above steps. However, this yeiled a lower accuracy of 0.28, therefore I decided to keep my original clusters of 2.</h5>
+<pre class="r"><code>round(sum(diag(as.matrix(confmat[,2:3])))/sum(confmat[,2:3]),4)</code></pre>
+<pre><code>## Error in as.matrix(confmat[, 2:3]): object &#39;confmat&#39; not found</code></pre>
+</div>
+<div id="here-i-create-a-visualization-of-the-clusters-using-ggpairs.in-the-full-cluster-visualization-scatterplots-of-each-pair-of-numeric-variable-are-shown-in-the-bottom-left-part-of-the-figure-while-the-pearson-correlations-are-displayed-on-the-right-side.-on-the-left-part-of-the-figure.-the-diagonal-represents-the-variable-distribution.-based-on-the-scatterplots-which-are-colored-according-to-the-continent-and-shaped-according-to-the-clusters-we-see-that-there-does-not-seem-to-be-a-clear-cluster-of-the-variables.-working-with-such-data-which-has-a-wide-range-of-values-prevents-a-clear-clustering-of-data." class="section level5">
+<h5>Here, I create a visualization of the clusters using ggpairs().In the full cluster visualization, scatterplots of each pair of numeric variable are shown in the bottom left part of the figure while the pearson correlations are displayed on the right side. on the left part of the figure. The diagonal represents the variable distribution. Based on the scatterplots which are colored according to the continent and shaped according to the clusters, we see that there does not seem to be a clear cluster of the variables. Working with such data which has a wide range of values prevents a clear clustering of data.</h5>
+<pre class="r"><code># Download and load necessary packages
+library(GGally)</code></pre>
+<pre><code>## Registered S3 method overwritten by &#39;GGally&#39;:
+##   method from   
+##   +.gg   ggplot2</code></pre>
+<pre><code>## 
+## Attaching package: &#39;GGally&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     nasa</code></pre>
+<pre class="r"><code>fin &lt;- final %&gt;% select(-Country)</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;final&#39; not found</code></pre>
+<pre class="r"><code># I plot only columns 2:4 of my data for easier visualization of how the data points 
+# are grouped together by color and shape. 
+ggpairs(fin, columns=2:4, aes(color=Continent, shape=cluster), 
+        title = &quot;Visualization Clusters of Merged data&quot;) + 
+  theme(axis.text.x = element_text(angle=45), text = element_text(size=7)) </code></pre>
+<pre><code>## Error in ggpairs(fin, columns = 2:4, aes(color = Continent, shape = cluster), : object &#39;fin&#39; not found</code></pre>
+<pre class="r"><code># Full cluster visualization employing all of the columns except country. 
+ggpairs(fin, columns=2:8, aes(color=Continent, shape=cluster), 
+        title = &quot;Visualization Clusters of Merged data&quot;) + 
+  theme(axis.text.x = element_text(angle=45), text = element_text(size=7))</code></pre>
+<pre><code>## Error in ggpairs(fin, columns = 2:8, aes(color = Continent, shape = cluster), : object &#39;fin&#39; not found</code></pre>
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+</div>
+</div>
+
+              <hr>
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+              </div>
+            </div>
+          </div>
+          <hr>
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = '';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/js/docs.min.js"></script>
+<script src="/js/main.js"></script>
+
+<script src="/js/ie10-viewport-bug-workaround.js"></script>
+
+
+    
+  </body>
+</html>

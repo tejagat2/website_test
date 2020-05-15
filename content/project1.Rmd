@@ -1,0 +1,279 @@
+---
+title: "Project 1"
+author: "Tejashwini Gattu"
+date: "3-15-2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
+## Tejashwini Gattu
+## tg23939
+
+```{r}
+# Install all necessary packages  
+load("~/P1data.RData")
+library(tidyverse)
+save.image("~/P1data")
+```
+
+## Part I
+
+##### The two datasets that I will be working with are called "countries" and "X2019", both of which were found on Kaggle. The dataset "X2019" is a world happiness report for the year 2019 and ranks the countries according to how happy their citizens precieve themselves to be. There are six variables used to explain life evaluations (aka how happy the individuals perceive themselves to be) in this dataset, and they are based on what what literature has previously shown is important to explain differences in life evaluations. The data was collected through a survey called the "Gallup World Poll" and therefore is self-reported. "Country" is the name of the country, ofcourse. The "Overall Rank" represents the ranking of the country on the happiness scale, with higher scores correlating better life evaluations. The "Score" column in the datasets is based on the Cantril ladder which asks respondents to rate their own current lives on a 0-10 scale, with higher scores being the best possible life for them. The remaining columns- "levels of GDP", "life expectancy", "generosity", "social support", "freedom", and "corruption" - have no impact on the total "Score" but rather represent how much/what share of the country's overall "Score" can be explained by each of the six factors. This dataset was interesting as it presents a unique way of mesuring happiness. 
+##### The second dataset "hdev" is a Human Development Index (HDI) which is a dataset with summary measures of acievements of important dimensions of human development including education attained, gross national income and life expectancy. Information about how this dataset was acquired was obtained is not listed on Kaggle, the source of the dataset. The dataset has 8 variables. The first variable is named "HDI Rank" which ranks the countries in terms of how they rank on the Human Development Index, with a higher rank corresponding to higher levels of human development in the Country. The variable "Continent" groups the countries accorind to the continent they belong to. The next variable "Country" lists 195 countries. The column "Human Development Index (HDI)" has the index which varies between 0 and 1, with values closer to one representing higher levels of human development. "Life expectancy at Birth" is a dimension of health. The column "Expected Years of Education" is the expected years of education for children. While "Mean Years of Education" is measured by the mean years of Education for adults above 25. The "Gross National Icome (GNI) per capita" is the standard of the living dimension which presents the economic health of a country as it represents refers to the size of each country’s economy divided by the population. The last variable, "GNI per capita minus HDI Rank2", is another means of measuring the living dimension of a country based not just on economy but other factors indicated by HDI such as education and life expectancy. I would like to see if there are certain factors that correlate with a country's "happiness". 
+
+##### Both of my datasets are already tidy, so here I go through the process of untidying them and cleaning them back up. First untidy my dataset named "hdev" by pivoting the "Country" and "Human Development Index (HDI)" columns wider (aka horizontally) using pivot_wider. I name this now messy data as "hdev1". I use head() throughout the project to give a glimpse of the new datasets created for comparision. 
+```{r}
+head(hdev, 10)
+hdev1 <- hdev %>% pivot_wider(names_from="Country", values_from=`Human Development Index (HDI)`)
+```
+
+##### Tidy up the now messed up dataset, "hdev1" back into the "Country" and "HDI" columns Here, I use pivot_wider to gather the column names from 7-201 back into "Country" and I gather the values under these columns back into one column named "HDI". Note: I renamed "Human Development Index (HDI)" to "HDI" because it's easier to type out.
+```{r}
+hdev2 <- hdev1 %>% pivot_longer(cols=c(8:195), names_to="Country", values_to = "HDI")
+```
+
+##### However, by tidying up the data again, we introduce thousands of NA values. Therefore, I need to filter out all NAs in the "HDI" column and save as new dataframe named "hdev3". I used head() in order to show that this re-tidyed dataframe and the original are the same. 
+```{r}
+hdev3 <- hdev2 %>% filter(!is.na(HDI))
+```
+
+##### Next, I untidy and re-tidy my second dataset named "X2019". First, Untidy "X2019" using pivot_wider. I saved it as a new dataframe named "X2019_a". 
+```{r}
+head(X2019, 10)
+X2019_a <- X2019 %>% pivot_wider(names_from=`Country or region`, values_from=Score)
+```
+
+##### Tidy "X2019_a" by gathering the column names from columns 8 through 163 into the column named "Country_region" and gathering the values under these columns into a the column named "Score". Save this as a new dataframe named "X2019_b". 
+```{r}
+X2019_b <- X2019_a %>% pivot_longer(cols=c(8:163), names_to="Country_region", values_to="Score")
+```
+
+##### Filter out all NA values in the "Score" column and save as new dataframe named "X2019_c". I used head() in order to show that this re-tidyed dataframe and the original are the same. 
+```{r}
+X2019_c <- X2019_b %>% filter(!is.na(Score))
+```
+
+## Part II - Merging the Datasets
+
+##### I wanted to join my two datasets by the common variable, "Country". However, the "hdev" dataset simple has his column titled as "Country" while my X2019 dataset has this common column titled as "Country or Region". Therefore, I first had to change the names in my datasets to be equivalent so that I can join them. 
+```{r}
+colnames(X2019)[2] <-"Country"
+```
+
+##### Recode some of the Country names in countries dataset in order to match it to the X2019 dataset better. After I recdode the names of some of the countries, I then create a new table of values with the updated names. I then use the mutate function to replace the original names with the new column named "Country1". 
+```{r}
+Country1 <- hdev$Country %>% 
+  recode("Trinidad and Tobago" = "Trinidad & Tobago") %>% 
+  recode("Korea (Republic of)"= "South Korea") %>% 
+  recode("Bolivia (Plurinational State of)" = "Bolivia") %>% 
+  recode("Cyprus"="Northern Cyprus") %>% 
+  recode("Russian Federation" = "Russia") %>% 
+  recode("Moldova (Republic of)"= "Moldova") %>% 
+  recode("Hong Kong, China (SAR)" = "Hong Kong") %>% 
+  recode("The former Yugoslav Republic of Macedonia" = "North Macedonia") %>% 
+  recode("Viet Nam" = "Vietnam") %>%
+  recode("Congo (Democratic Republic of the)"="Congo (Kinshasa)") %>% 
+  recode("Congo"="Congo (Brazzaville)") %>% 
+  recode("Lao People's Democratic Republic"="Laos") %>% 
+  recode("Venezuela (Bolivarian Republic of)" = "Venezuela") %>% 
+  recode("Palestine, State of"= "Palestinian Territories") %>% 
+  recode("Iran (Islamic Republic of)" = "Iran") %>%
+  recode("Syrian Arab Republic" = "Syria") %>% 
+  recode("Tanzania (United Republic of)"="Tanzania")
+
+hdev <- hdev %>% mutate(Country1) %>% select(-c(Country))
+hdev <- hdev %>% rename("Country"=Country1)
+```
+
+
+##### Next, I merged my two datasets by using right_join. The right join takes the database on the right, "X2019" and matches observations by the common variable "Country" from the database on the left which is "hdev". In other words, it keeps all the observations from "X2019" and adds matching observations from the "hdev" dataset. In doing the merge, I lost about 39 observations from hdev dataset. I still keep the majority of my observations, so I do not necessarily see this as a problem. However, I choose this type of merge in particular because I am more interest in my "X2019" dataset which represents the world happiness. 
+```{r}
+merge <- right_join(hdev, X2019, by= "Country")
+head(merge, 10)
+```
+
+
+## Part III - Creating Summary Statistics
+
+##### I use one of the six core dplyr functions, filter(), in order to grab columns from the merge dataset which belong to the continent "Africa". Then I pipe this into the mean function inside of summarize(). This gives us an the mean score for for the countries that belong to the African continent which is 4.36. 
+
+```{r}
+filter(merge, Continent =="Africa") %>% summarize(mean(Score))
+```
+
+##### Next, I used the function group_by() to group my observations by the continent. Then I found the mean "Life expectancy at Birth" using the summarise function and gave this column the name "avg_life_expec". Finally, I piped this into arrange to arrange by the "avg_life_expec" which gave me the values in an ascending manner for all 6 continents. 
+```{r}
+merge %>% 
+ group_by(Continent) %>%
+ summarise(avg_life_expec = mean(`Life Expectancy at Birth`, na.rm=TRUE)) %>% 
+ arrange(avg_life_expec)
+```
+
+
+##### Next, I filtered the top 50 countries (one-third of my observations) by their HDI rank. These are the top countries in the world for which data is included who have the most advancements in their Human Development Index. Then, I selected all the columns belonging to these countries. Then I used summarize to find the IQR for the "Gross National Income (GNI) per Capita" for these countries, which is $19,033.75. The IQR describes the middle 50% of the values and presents a good measure of spread as it is not affected by outliers. According to the values, we see that there is quite a large spread/range in the GNI per capita even among these top 1/3 of the countries with the best HDI ranks. 
+
+```{r}
+merge %>%
+  filter(`HDI Rank` < 50) %>%
+  select(everything()) %>% 
+  summarize(IQR(`Gross National Income (GNI) per Capita`))
+```
+
+##### Here, I find the average years of Education after grouping the countries by the continent that they belong to. According to the data, Oceania has the highest average years of education while Africa has the lowest. 
+
+```{r}
+merge %>% group_by(Continent) %>% summarize(mean(`Mean Years of Education`))
+```
+
+##### Next, I once again grouped the countries by the continent and found the maximum score in each of the continents. According to the data Europe has the highest scores of life evaluations with Africa reporting the lowest levels of life evaluation. 
+ 
+```{r}
+merge %>% group_by(Continent) %>% summarise(max(Score)) 
+```
+
+##### Using mean() inside of summarize I found the mean GNI per capita among the countries after filtering out the four NA values. The mean GNI per capital is $17,655.42. The next statistic is found by using the median function inside of summarize. According to this, the median GNI per capita is $11,831.5. Since the mean is greater than the median, this suggests that the GNI per capita has a positive skew. 
+```{r}
+merge %>% summarise("mean_GNI_per_capita"=mean(`Gross National Income (GNI) per Capita`, na.rm=TRUE))
+
+merge %>% summarise("median_GNI_per_capita"=median(`Gross National Income (GNI) per Capita`, na.rm=TRUE))
+```
+##### Here, I create 10 different summary statistics using summarize() and summarize() with group_by(). The first statistic, I use summarize_all() to find out the number of NA values in each of the 16 columns in the merged data. According to this, I have four NA values in columns in columns  1 and 3-8, and 6 NA values in column 2 of the merged dataset. 
+```{r}
+merge %>% summarize_all(~sum(is.na(.)))
+```
+
+##### Next, I created a correlation matrix using cor() on the numeric values of my merged dataset. In order to do so, I first removed any NA values in my dataset using na.omit(). This removed about 6 observations and I saved these new values as a dataframe named "merge1". I then selected my numeric values using selet_if(is.numeric) and saved this as a dataframe called "merge_nums". I then created a correlation matrix on this. 
+##### Based on the correlation matrix, it appears that there is a strong negative correlation between HDI rank and variables that were taken into creating this index as expected. The variable I was particularly interested about "Overall rank" which rated the "happiness" of these countries seems to be most correlation with social support, a healthy life expectancy and income. 
+```{r}
+install.packages("corrplot")
+merge1 <- na.omit(merge)
+merge_nums <- merge1 %>% select_if(is.numeric)
+cor(merge_nums)
+```
+
+##### Here, I use my dataset with all NA's omitted, called merge1 and mutate() to create a new column in my dataset called "percentile_rank". I use the function ntile which calculates percentile ranks to calculate a percentile rank of the variable "Social support". This variable represents how much of the country's overall "Score" can be explained by the social support individuals recieve.
+```{r}
+library(dplyr)
+merge2 <- merge1 %>% mutate(percentile_rank_SS = ntile(`Social support`, 100))
+```
+
+##### The next statistic uses sd() inside of summarize to find the sd of these the "Mean Years of Education" grouped by the continent. According to the data, the with the largest standard deviation is Asia, followed by Africa. This means that the range in Mean years of education is most spread out in these countries. Meanwhile, the standard deviations are much smaller in Oceania and South America, meaning the mean Years of Education 
+```{r}
+merge %>% group_by(Continent) %>% summarise(sd(`Mean Years of Education`, na.rm=TRUE))
+```
+
+## Part IV - Make visualizations
+
+##### A correlation heatmap is generated using my datast "merge1", which has all NA values removed. Then, using select_if(), I was able to select only the numeric values which was then piped into cor to create the correlation matrix. This is then piped into ggplot where the aes function is used to create the fill based on the correlation value, Geom_text can then be added to tell the plot what text to add inside the heatmaps. Using size, I was able to change the size of the text smaller to ensure that the values can be read and using aes again inside of geom_text, the x- and y-labels are assigned. The function "scale_fill_gradient2" is used to assign different colors to the heatmap based on the correlation. High (positive) correlations are assigned the color blue and low (negative) correlations are assigned the color red. Using theme, we can further change the plot by changing the angle of the test and the size of the axis labels, as well as add a legend. Based on the plot, we can see that "generosity" has almost no correlation with any of the variables. Additionally, as expected variables such as life expectancy, education, social support, etc, are positively correlated with each other and with other variables in general. 
+
+```{r}
+merge1 %>% select_if(is.numeric) %>% cor %>% as.data.frame %>%
+  rownames_to_column%>%pivot_longer(-1)%>% 
+  ggplot(aes(rowname,name,fill=value))+geom_tile()+
+  geom_text(size =2, aes(label=round(value,2)))+xlab("")+ylab("") +
+  scale_fill_gradient2(low="red",high="blue") + 
+  theme(axis.text.x = element_text(angle=45, hjust=1), text = element_text(size=8))+
+  ggtitle("Correlation Heatmap of numeric variables in merged dataset")
+```
+
+##### In this plot, I create a scatterplot using geom_point() and my dataset, merge1. According to out correlation heatmap, there is a positive correlation of 0.6 between the variables "Gross National Income (GNI) per Capita" and "Mean Years of Education", and this can be observed most clearly through the African countries in the plot below. However, I wanted to explore how these variables differ across continents as well in the below plot. Here, I use aes() inside of ggplot to assign the x and y-axis which are GNI per capital and Mean Years, respectively. Then, using aes() inside of geom_point, I was able to assign the color of the points according to the continent that country belongs to and the size of the points according to the GNI per capita of that country. Based on this plot, we can observe that the continent of Europe leads the world in terms of the mean years of education and GNI per capita. What's unexpected in that although many Asian countires are on the higher range in terms of the education acquired, the GNI per capita is much larger than the European countries. 
+
+```{r}
+ggplot(merge1, aes(`Gross National Income (GNI) per Capita`,`Mean Years of Education`))+
+  geom_point(aes(color=Continent, size=`Gross National Income (GNI) per Capita`)) +
+  ggtitle("Mean Years of Education vs. GNI per capita by Continent")
+```
+
+##### One factor that I was especially interested about is how much do the six variables from columns 12:17 in my merged dataset contribute to the overall "happines" or "Score" for the countries. In order to do so, I decided to fact_wrap() by each of these 6 six columns and create a bar plot. I first gathered all the variables excluding the first 11 columns of my merged dataset and saved these gathered variables under the key "var" and the values under "values". Next I piped this into ggplot and assigned the x and y axis. The x-axis represents the continent that the countries belong to and the y-axis represents the score value. Using geom_bar I was able to create a bar plot while also customizing the x-angle text inside this function. Next, I was then able to facet wrap by the gathered variables using the key "var". Next, error bars were added to see if there was a large deviation anywhere. Based on the plots, we can tell that GDP per capita, social support, and Healthy life expectancy contribute the most to the happiness of individuals within a country. Additionally, the continent of Oceania seems to given the highest scores consistently across all 6 levels. Freedom to make life choices, perceptions of corruption and Generosity seem to contribute little to the happiness reported by the countries. 
+
+```{r}
+merge1 %>%
+  gather(-`HDI Rank`, -Continent, -`Human Development Index (HDI)`, -`Life Expectancy at Birth`, -`Expected Years of Education`, -`Mean Years of Education`, -`Gross National Income (GNI) per Capita`, -`GNI per Capita Rank Minus HDI Rank`, -Country, -`Overall rank`, -Score, key = "var", value = "value") %>% 
+  ggplot(aes(x = Continent, y = value)) + theme_minimal() +
+    geom_bar(stat="summary") + theme(axis.text.x = element_text(angle=45)) + 
+    facet_wrap(~ var) + geom_errorbar(stat="summary", width=0.5) + ggtitle("Contribution of 6 Different Variables to the Happiness Score of the Continents") 
+        
+```
+
+## Part V - Cluster Analysis
+
+##### In this next part, I will be performing a PAM Clustering.The first step is to decide the number of clusters, or k, to use. To determine the number of clusters to use, we can use the "Average Silhouette Method" which determines how well each object lies within its cluster. This method computes the average silhouette width to the optimal number of clusters, k. Ideally, a high average silhouette width indicates a good clustering. Here, I use the silhouette function which is within the "cluster" package to find the average silhouette width for 2-10 clusters. Note: I first selected only my numeric data and saved it as a dataframe called pam_dat. Based on the results, 2 clusters maximize the average silhouette values, with the next best option being 6 clusters. 
+
+```{r}
+library(cluster)
+
+# Note: I removed several variables which are based on rank or are a duplicate of another
+# variable in the dataset. Additionally "generosity" and "Freedom to make life choices" 
+# were removed as they not significantly contribute to my "score" variable as seen in the
+# correlation heatmap. Also, had to do this as my final pairwise combinations with all of
+# these numeric variables resulted in a a plot that was difficult to read regarless of 
+# how I managed to change the font size. 
+pam1 <- merge1 %>% select(-"HDI Rank", -"GNI per Capita Rank Minus HDI Rank", -"Overall rank", -"Expected Years of Education", -"Generosity", -"Perceptions of corruption", -"Freedom to make life choices", -"Healthy life expectancy")
+  
+pam_dat <- pam1 %>%select_if(is.numeric)
+
+sil_width<-vector() # This creates an empty vector to hold mean sil width
+for(i in 2:10){
+kms <- kmeans(pam_dat,centers=i) #compute k-means solution on my numeric values
+sil <- silhouette(kms$cluster,dist(pam_dat)) #get sil widths
+sil_width[i]<-mean(sil[,3]) #takes averages
+}
+
+ggplot()+geom_line(aes(x=1:10,y=sil_width))+scale_x_continuous(name="Number of clusters K", breaks=1:10) + scale_y_continuous(name="Average Silhouettes")
+```
+
+##### Now, I can run my cluster analysis using the PAM method using the function pam() on all of numeric variables using k=2. 
+```{r}
+library(cluster)
+pam_values <- pam1 %>% select_if(is.numeric) %>%pam(2)
+pam_values
+```
+
+##### Here, I first create a dataframe called final with the cluster data added in as a new column using mutate() Next, I create a matrix with this which groups by the Continent. Finally, I tell r where to gather the names and values from in the matrix. Based on the results of the cluster, all the observations belonging to the continents of Africa, South America and Oceania were assigned to either one or the other cluster. However, this is not true of the countries belonging to the continents of Asia, Europe and North America. 
+```{r}
+final<-pam1 %>% mutate(cluster=as.factor(pam_values$clustering))
+
+confmat<- final %>% group_by(Continent) %>% count(cluster) %>% arrange(desc(n)) %>%
+  pivot_wider(names_from="cluster",values_from="n",values_fill = list('n'=0))
+
+confmat
+```
+
+##### Based on the matrix created above, I can check for accuracy of my clusters. Based on the results, the accuracy is 0.36. As a result of this low accuracy, the clusters do not seem to be a well fit for the data. NOTE: I also tried to cluster my data with k=6 and repeated the above steps. However, this yeiled a lower accuracy of 0.28, therefore I decided to keep my original clusters of 2. 
+```{r}
+round(sum(diag(as.matrix(confmat[,2:3])))/sum(confmat[,2:3]),4)
+```
+
+##### Here, I create a visualization of the clusters using ggpairs().In the full cluster visualization, scatterplots of each pair of numeric variable are shown in the bottom left part of the figure while the pearson correlations are displayed on the right side.  on the left part of the figure. The diagonal represents the variable distribution. Based on the scatterplots which are colored according to the continent and shaped according to the clusters, we see that there does not seem to be a clear cluster of the variables. Working with such data which has a wide range of values prevents a clear clustering of data.  
+```{r}
+# Download and load necessary packages
+library(GGally)
+
+fin <- final %>% select(-Country)
+
+# I plot only columns 2:4 of my data for easier visualization of how the data points 
+# are grouped together by color and shape. 
+ggpairs(fin, columns=2:4, aes(color=Continent, shape=cluster), 
+        title = "Visualization Clusters of Merged data") + 
+  theme(axis.text.x = element_text(angle=45), text = element_text(size=7)) 
+
+# Full cluster visualization employing all of the columns except country. 
+ggpairs(fin, columns=2:8, aes(color=Continent, shape=cluster), 
+        title = "Visualization Clusters of Merged data") + 
+  theme(axis.text.x = element_text(angle=45), text = element_text(size=7))
+```
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+
+
+
+
